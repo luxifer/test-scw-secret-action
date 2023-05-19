@@ -1,0 +1,15 @@
+name: Scaleway get secrets action test
+on: [push]
+jobs:
+  test-scaleway-get-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: luxifer/scw-secret-manager-get-secrets@v1
+        with:
+          secret-names: |
+            my-github-secret
+          access-key: ${{ secrets.SCW_ACCESS_KEY }}
+          secret-key: ${{ secrets.SCW_SECRET_KEY }}
+          default-project-id: ${{ secrets.SCW_DEFAULT_PROJECT_ID }}
+          default-organization-id: ${{ secrets.SCW_DEFAULT_ORGANIZATION_ID }}
+      - run: echo "Successfully retrieve 'my-github-secret' with value $MY_GITHUB_SECRET"
