@@ -4,7 +4,7 @@ jobs:
   test-scaleway-get-secrets:
     runs-on: ubuntu-latest
     steps:
-      - uses: luxifer/scw-secret-manager-get-secrets@v1
+      - uses: scaleway/action-scw-secret@v0
         with:
           secret-names: |
             my-github-secret
